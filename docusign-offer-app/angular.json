@@ -41,6 +41,12 @@
               "glob": "**/*",
               "input": "src/assets/",
               "output": "/assets/"
+            } ,
+              {
+              "glob": "**/*",
+              
+              "input": "node_modules/@pdftron/pdfjs-express/public",
+              "output": "/assets/webviewer"
             }
             ],
             "styles": [
@@ -118,3 +124,4 @@
     }
   }
 }
+
