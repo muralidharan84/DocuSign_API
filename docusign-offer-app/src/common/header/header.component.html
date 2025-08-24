@@ -1,0 +1,35 @@
+<header class="flex items-center justify-between bg-white shadow px-6 py-3">
+    <div class="flex items-center gap-6">
+        <img src="assets/zenithr.png" alt="Zenith Logo" class="h-12 w-auto" />
+
+        <!-- Nav links -->
+        <nav class="flex items-center gap-6 text-md text-gray-600">
+            <a routerLink="/home" routerLinkActive="text-blue-600 font-medium"
+                class="flex items-center gap-2 hover:text-blue-600">
+                <i class="fas fa-briefcase"></i>
+                Jobs
+            </a>
+            <a routerLink="/applicants" routerLinkActive="text-blue-600 font-medium"
+                class="flex items-center gap-2 hover:text-blue-600">
+                <i class="fa-solid fa-users"></i>
+                Job Applicants
+            </a>
+        </nav>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <a routerLink="/dashboard" routerLinkActive="text-blue-600 font-medium"
+            class="text-sm text-blue-600 hover:text-blue-600 flex items-center gap-1">
+            <i class="fa fa-dashboard"></i>
+            Go to Dashboard
+        </a>
+
+        <a routerLink="/notification" routerLinkActive="text-blue-600 font-medium"
+            class="text-sm text-gray-600 hover:text-blue-600 text-lg flex items-center gap-1">
+            <i class="fas fa-bell"></i>
+        </a>
+        <button class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300">
+             <i class="fa-solid fa-user"></i>
+        </button>
+    </div>
+</header>

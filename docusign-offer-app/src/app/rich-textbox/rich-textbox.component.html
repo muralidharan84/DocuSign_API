@@ -1,0 +1,7 @@
+<ckeditor
+  [editor]="Editor"
+  [disabled]="isDisabled"
+  (ready)="onReady($event)"
+  (blur)="onTouched()"
+  [config]="editorConfig"
+></ckeditor>

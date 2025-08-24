@@ -1,0 +1,28 @@
+
+<div class="min-h-screen bg-gray-100">
+ <app-spinner></app-spinner>
+<app-header></app-header>  <!-- your header component -->
+
+  <!-- Content -->
+  <main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 space-y-6">
+      
+      <!-- Info Banner -->
+      <div class="bg-blue-50 border border-blue-200 rounded-md p-3 pb-6 text-sm text-blue-700">
+        On the document preview, the signature line always shows the ordering activity date,
+        even if a later signature is made as part of the contract signing.
+      </div>
+      <!-- Recipient Details -->
+     <app-job-offer class="p-6" ></app-job-offer>
+
+    </div>
+
+    <!-- Preview Panel -->
+    <aside class="bg-white shadow rounded-lg p-6">
+      <h2 class="text-lg font-semibold mb-4">Preview</h2>
+      <div class="border p-4 text-sm text-gray-700 space-y-3 rounded-md">
+        <app-pdf-viewer [file]="file"></app-pdf-viewer>
+      </div>
+    </aside>
+  </main>
+</div>

@@ -1,0 +1,63 @@
+ <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="space-y-6">
+  <div class="bg-white shadow rounded-lg p-6">
+    <h2 class="text-lg font-semibold mb-4">Recipient Details</h2>
+    <div class="space-y-4">
+      <!-- Full Name -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Full Name</label>
+        <input
+          type="text"
+          formControlName="candidateName"
+          placeholder="Name"
+          class="w-full rounded-md border-gray-500 shadow-sm h-12 focus:ring-blue-300 focus:border-blue-500"
+        />
+         @if (submitted && offerForm.get('candidateName')?.invalid) {
+        <div class="text-red-500 text-sm mt-1 p-2">
+            Candidate or Recipient Name is required.
+        </div>
+        }
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium mb-1">Email Address</label>
+        <input
+          type="email"
+          formControlName="candidateEmail"
+          placeholder="example@example.com"
+          class="w-full rounded-md border-gray-500 shadow-sm h-12 focus:ring-blue-300 focus:border-blue-500"
+        />
+        @if (submitted && offerForm.get('candidateEmail')?.invalid) {
+            <div class="text-red-500 text-sm mt-1">
+                @if (offerForm.get('candidateEmail')?.errors?.['required']) {
+                <span>Email is required.</span>
+                }
+                @else if (offerForm.get('candidateEmail')?.errors?.['email']) {
+                <span>Enter a valid email.</span>
+                }
+            </div>
+            }
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Offer -->
+  <div class="bg-white shadow rounded-lg p-6">
+    <h2 class="text-lg font-semibold mb-4">Job Offer</h2>
+    <div class="border border-gray-300 rounded-md ">
+      <app-rich-textbox formControlName="content"></app-rich-textbox>
+      @if (submitted && offerForm.get('content')?.invalid) {
+        <div class="text-red-500 text-sm mt-1 p-2">
+            Description is required.
+        </div>
+        }
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="flex justify-end">
+    <button type="submit"  class="w-full bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+      {{btnSubmitText}}
+    </button>
+  </div>
+</form>
