@@ -1,59 +1,140 @@
-# DocusignOfferApp
+DocuSign API Integration (Job Contract System)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+This repository contains a .NET Core Web API backend and an Angular frontend for generating and sending job contracts using DocuSign API.
 
-## Development server
+🚀 Backend (.NET Core API) Setup
+Step 1: Clone the repository
+git clone https://github.com/muralidharan84/DocuSign_API.git
 
-To start a local development server, run:
+Step 2: Extract the files
 
-```bash
-ng serve
-```
+Unzip the project if downloaded manually.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Step 3: Open Solution
 
-## Code scaffolding
+Double click Docusign.JobContract.API.sln to open the solution in Visual Studio.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Step 4: Rebuild the Application
 
-```bash
-ng generate component component-name
-```
+From Visual Studio, select Build → Rebuild Solution.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Step 5: Update Database Connection
 
-```bash
-ng generate --help
-```
+Navigate to the Docusign.JobContract.WebApi project and update the DefaultConnection string in appsettings.json to point to your database.
 
-## Building
+Step 6: Configure DocuSign
 
-To build the project run:
+Create a DocuSign Developer Account if you don’t already have one:
+👉 Create Sandbox Account
 
-```bash
+Step 7: Login to DocuSign Developer Account
+Step 8: Get API Keys
+
+Navigate to 👉 Apps and Keys
+ and copy the required credentials.
+
+Step 9: Create App (if not exists)
+
+If no app is listed, click Add App and Integration Key.
+
+Step 10: Edit App Settings
+
+Click Actions → Edit on your app.
+
+Step 11: Generate RSA Key
+
+If you need a new key pair, click Generate RSA and download it.
+
+Step 12: Save Private Key
+
+Copy the private key including header/footer:
+
+-----BEGIN RSA PRIVATE KEY-----
+...
+-----END RSA PRIVATE KEY-----
+
+
+Save it as private.key in the root of the WebAPI project.
+
+Step 13: Set Callback URL
+
+Provide callback URL:
+
+https://ABC/ds/callback
+
+
+Replace ABC with your server’s domain.
+
+Step 14: Configure CORS
+
+Enable required HTTP methods.
+
+Step 15: Update Credentials
+
+Replace the placeholders in appsettings.json with your values:
+
+AccountId
+
+IntegrationKey
+
+UserId
+
+Step 16: Run EF Migrations
+
+Open Package Manager Console:
+Tools → NuGet Package Manager → Package Manager Console
+
+Select Default Project → Docusign.JobContract.API.Infrastructure
+
+Run:
+
+add-migration Initial
+update-database
+
+🌐 Frontend (Angular App) Setup
+Step 1: Open Project
+
+Navigate to docusign-offer-app folder in VS Code or any editor.
+
+Step 2: Install Dependencies
+npm install
+
+Step 3: Build Angular Project
 ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Step 4: Run Angular App
+ng serve
 
-## Running unit tests
+Step 5: Generate Offer
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Fill out the job contract details in the form.
 
-```bash
-ng test
-```
+Click Generate Offer → PDF preview appears on the right.
 
-## Running end-to-end tests
+Step 6: Send for Signature
 
-For end-to-end (e2e) testing, run:
+Click Send for Signature.
 
-```bash
-ng e2e
-```
+Step 7: Sign in DocuSign
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Login at 👉 DocuSign Send
 
-## Additional Resources
+You will find the contract ready for signature and download.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+✅ Features
+
+Generate job contracts dynamically
+
+Preview contract as PDF
+
+Send contracts via DocuSign API
+
+Track signing workflow
+
+🛠 Tech Stack
+
+Backend: ASP.NET Core Web API, EF Core, SQL Server
+
+Frontend: Angular
+
+Authentication: DocuSign API with JWT + RSA private key
