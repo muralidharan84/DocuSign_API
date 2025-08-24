@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add global styles to this file, and also import other style files */
+.ck-editor__editable_inline {
+  min-height: 350px;
+}
+.ck.ck-powered-by {
+  display: none !important;
+}
+
+/* Set a fixed height */
+.ck-editor__editable {
+  min-height: 300px;   /* ensures minimum height */
+  max-height: 600px;   /* optional */
+}
+
+/* Or exact height */
+.ck-editor__editable {
+  height: 400px;
+}
+
+.toast-success {
+  background-color: #16a34a !important; /* Tailwind green-600 */
+}
+
+.toast-error {
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+}
